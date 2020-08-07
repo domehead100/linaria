@@ -110,7 +110,7 @@ export type EvalRule = {
   action: Evaluator | 'ignore' | string;
 };
 
-type ClassNameFn = (hash: string, title: string) => string;
+type ClassNameFn = (hash: string, title: string, basename: string) => string;
 
 export type StrictOptions = {
   classNameSlug?: string | ClassNameFn;

@@ -105,8 +105,10 @@ export default function GenerateClassNames(
   // The className can be defined by the user either as fn or a string
   if (typeof options.classNameSlug === 'function') {
     try {
+      const fn = state.file.opts.filename;
+      const bn = _path.basename(fn, _path.extname(fn));
       className = toValidCSSIdentifier(
-        options.classNameSlug(slug, displayName)
+        options.classNameSlug(slug, displayName, bn)
       );
     } catch {
       throw new Error(`classNameSlug option must return a string`);
